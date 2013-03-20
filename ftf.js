@@ -14,12 +14,18 @@
 var header=[];
 
 
-function addchilds(datarow,data,headerindex) {
+function addchilds(datarow,data,headerindex,sum_leafnodes) {
  //base case: stop recursion when a numeric value is found
  //and insert the value as an object with name value attribute. 
  if (! isNaN (datarow[header[headerindex]]))
  {
-   data.children.push({"name":header[headerindex],"size": datarow[header[headerindex]]});
+   if (sum_leafnodes&&(data["children"].length>0))
+   {
+          data["children"][0]["size"]+=datarow[header[headerindex]];
+   }
+   else{
+      data.children.push({"name":header[headerindex],"size": datarow[header[headerindex]]});
+   }
    return data;
  }
  else{
@@ -29,26 +35,26 @@ function addchilds(datarow,data,headerindex) {
 
    headerindex++;
  //call fanction to add to the already existing level found
- data["children"][counter]=addchilds( datarow,data["children"][counter], headerindex);
+ data["children"][counter]=addchilds( datarow,data["children"][counter], headerindex, sum_leafnodes);
  return data;
  }
 }
   //add child at the same lavel and call function to add to it
   data["children"].push({"name":datarow[header[headerindex]],"children": []});
    headerindex++;
- data["children"] [data["children"].length-1]=addchilds( datarow,data["children"][data["children"].length-1], headerindex);
+ data["children"] [data["children"].length-1]=addchilds( datarow,data["children"][data["children"].length-1], headerindex, sum_leafnodes);
 
  return data;
  
 }
 }
-function ftf(flatdata){
+function ftf(flatdata,sum_leafnodes){
   for (var key in flatdata[0]){
      header.push(key);
   }
    var treedata={"name": "flare","children": []}
   for (var i = 0; i <flatdata.length; i++) {
-      treedata= addchilds(flatdata[i],treedata,0);
+      treedata= addchilds(flatdata[i],treedata,0,sum_leafnodes);
   }
 //just for testing purposes uncomment if you want to debug
 //console.log(treedata);

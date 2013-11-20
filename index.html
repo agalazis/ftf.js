@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Ftf.js</title>
+  <meta name="description" content="FlatToFlarejs converts your flat json data to flare tree datastructure">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Ftf.js</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">FlatToFlarejs converts your flat json data to flare tree datastructure</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/agalazis/ftf.js/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/agalazis/ftf.js/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/agalazis/ftf.js" class="code">View Ftf.js on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="ftfjs" class="anchor" href="#ftfjs"><span class="octicon octicon-link"></span></a>ftf.js</h1>
+
+<p>FlatToFlarejs converts your flat json data to flare tree datastructure
+Requirements:
+Your json data should first comply with the following rules:-( in later commits I 'll try to minimise the ammount of rules required)</p>
+
+<ul>
+<li>Data should be in json format </li>
+<li>Data should be sorted by ancestry (For example if you get your json from a csv file before you convert it to json move the column of the parrent node to the left and its child node to the right (the leftmost column is the root)
+(for example column 3 is the child of column 2 which is the child of column 1)</li>
+<li>the  current function asumes that you are interested to show a numeric value as a leafnode,therfore the string catgory colums should be at the left and the numeric to the right (as they are leaf nodes- Remember leftmost column is the root!)</li>
+<li>If you have more than on e numeric columns the recursive function calling stops at the first column found with numeric value as the base case is to find  a numeric leaf node.</li>
+</ul><p>Use ftf(testdata,true) to sum your lefnodes (leafnode parents will have a single leafnode as a child). You can also use ftf(testdata,false) to keep the leafnodes seperated</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/agalazis" class="avatar"><img src="https://0.gravatar.com/avatar/3167594c5c3f61aec55cb9c2814ced8c?d=https%3A%2F%2Fidenticons.github.com%2Ff01a9d89cc85b00004420c9f15571aa9.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/agalazis">agalazis</a> maintains <a href="https://github.com/agalazis/ftf.js">Ftf.js</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/agalazis/ftf.js/tarball/master" class="tar">tar</a><a href="https://github.com/agalazis/ftf.js/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
